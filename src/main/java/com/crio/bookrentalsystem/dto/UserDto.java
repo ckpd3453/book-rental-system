@@ -4,18 +4,15 @@ import jakarta.validation.constraints.*;
 
 public class UserDto {
 
-    @NotBlank(message = "Username is required")
     @Size(min = 3, max = 50, message = "Username must be between 3 and 50 characters")
     private String userName;
 
-    @NotBlank(message = "Email is required")
     @Pattern(
             regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,6}$",
             message = "Invalid email format"
     )
     private String email;
 
-    @NotBlank(message = "Password is required")
     @Size(min = 8, max = 20, message = "Password must be between 8 and 20 characters")
     @Pattern(
             regexp = "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]+$",
